@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  ci-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js 18 + cache
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      # 3. Install dependencies
+      - name: Install dependencies with npm ci
+        run: npm ci
+
+      # 4. Run ESLint
+      - name: Run ESLint
+        run: npm run lint
+
+      # 5. Check Prettier formatting
+      - name: Check Prettier formatting
+        run: npm run format:check
+
+      # 6. Type check (TypeScript)
+      - name: Type check
+        run: npm run type-check
+
+      # 7. Build Next.js app
+      - name: Build application
+        run: npm run build
+
+      # 8. (Optional) Run tests
+      - name: Run unit tests
+        if: ${{ always() }}
+        run: npm run test

@@ -10,7 +10,7 @@
     "format": "prettier --write .",
     "check-format": "prettier --check .",
      "type-check": "tsc --noEmit",
-    
+     "test": "echo \"No tests yet\" && exit 0",
      "format:check": "prettier --check ."
   },
   "dependencies": {

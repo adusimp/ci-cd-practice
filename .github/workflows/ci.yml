@@ -32,7 +32,7 @@ jobs:
 
       # 5. Check Prettier formatting
       - name: Check Prettier formatting
-        run: npm run format:check
+        run: npm run format
 
       # 6. Type check (TypeScript)
       - name: Type check

@@ -1,3 +1,4 @@
 #!/bin/sh
 
 cmd /c "npm run lint"
+echo "adc"

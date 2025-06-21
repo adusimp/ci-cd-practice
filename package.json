@@ -10,7 +10,8 @@
     "format": "prettier --write .",
     "check-format": "prettier --check .",
      "type-check": "tsc --noEmit",
-    "prepare": "husky install"
+    
+     "format:check": "prettier --check ."
   },
   "dependencies": {
     "next": "15.3.4",

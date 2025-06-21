@@ -1,1 +1,1 @@
-let a:number = "abc";
+const a:number = "abc";
